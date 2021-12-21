@@ -20,4 +20,17 @@ contract NFT is ERC721URIStorage {
     constructor(address marketPlaceAddress) ERC721("KryptoBirdz", "KBIRDZ") {
         contractAddress = marketPlaceAddress;
     }
+
+    function mintToken(string memory tokenURI) public return(uint8) {
+        _tokenIds.increment();
+        uint256 newItemId = _tokenIds.current();
+        _mint(msg.sender, newItemId);
+        _setTokenURI(newItemId, tokenURI);
+        // give the marketplace the approval to transact between users
+        setApprovalForAll(contractAddress, true);
+        // set mint token for sale and return the id
+        return newItemId;
+    }
+    
+    }
 }
