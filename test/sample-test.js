@@ -24,8 +24,8 @@ describe("KBMarket", function () {
     await nft.mintToken('https-t1')
     await nft.mintToken('https-t2')
 
-    await market.mintMarketItem(nftContractAddress, 1, auctionPrice, {value: listingPrice});
-    await market.mintMarketItem(nftContractAddress, 2, auctionPrice, {value: listingPrice});
+    await market.makeMarketItem(nftContractAddress, 1, auctionPrice, {value: listingPrice});
+    await market.makeMarketItem(nftContractAddress, 2, auctionPrice, {value: listingPrice});
 
     // test for different addresses from different users - test accounts
     // return an array of different addresses

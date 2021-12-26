@@ -69,7 +69,7 @@ contract KBMarket is ReentrancyGuard {
     // 1. create a merket item to put it up for sale
     // 2. create a market sale fior buying and selling between parties
 
-    function mintMarketItem(address nftContract, uint tokenId, uint price)
+    function makeMarketItem(address nftContract, uint tokenId, uint price)
         public payable nonReentrant{
             // nonreentrant IS A modifier to prevent rentry attack
             require(price > 0, "Price must be greater than one wei");
@@ -182,7 +182,6 @@ contract KBMarket is ReentrancyGuard {
                 currentIndex += 1;
             }
         }
-
         return items;
     }
 
