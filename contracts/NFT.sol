@@ -21,7 +21,7 @@ contract NFT is ERC721URIStorage {
         contractAddress = marketPlaceAddress;
     }
 
-    function mintToken(string memory tokenURI) public return(uint8) {
+    function mintToken(string memory tokenURI) public returns (uint) {
         _tokenIds.increment();
         uint256 newItemId = _tokenIds.current();
         _mint(msg.sender, newItemId);
@@ -32,5 +32,4 @@ contract NFT is ERC721URIStorage {
         return newItemId;
     }
     
-    }
 }
